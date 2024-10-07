@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics Tracking Script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XMZQ4W7H4T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XMZQ4W7H4T');
+       // Function to get query parameters
+       function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get parameters
+        const source = getQueryParam('source');
+        const target = getQueryParam('target');
+
+        // Send event if source is present
+        if (source) {
+            gtag('event', 'click', {
+                'event_category': 'Links',
+                'event_label': source
+            });
+        }
+
+        // Redirect to target after a short delay
+        setTimeout(function() {
+            if (target) {
+                window.location.href = decodeURIComponent(target);
+            } else {
+                // Fallback URL
+                window.location.href = "https://forms.gle/FdJrwDq1iugFFZ6e7";
+            }
+        }, 100);
+    </script>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>If you are not redirected, <a href="https://forms.gle/FdJrwDq1iugFFZ6e7">click here</a>.</p> 
+</body>
+</html>
